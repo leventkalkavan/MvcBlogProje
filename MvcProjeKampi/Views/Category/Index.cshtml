@@ -4,16 +4,46 @@
 }
 
 <!DOCTYPE html>
-
-<h3>Kategori Tablo</h3>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h3>Kategori Tablosu</h3>
 <br />
-<table>
+<table class="table table-bordered">
     <tr>
         <th>ID</th>
         <th>Adı</th>
         <th>Açıklama</th>
         <th>Durum</th>
+        <th>Güncelle</th>
     </tr>
     <tr>
+        <td>1</td>
+        <td>isim</td>
+        <td>acıklama</td>
+        <td>true</td>
+        <td>
+            <button class="btn btn-block">Güncelle</button>
+        </td>
     </tr>
+    <tr>
+        <td>2</td>
+        <td>soyisim</td>
+        <td>acıklama</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>film</td>
+        <td>acıklama</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>kitap</td>
+        <td>acıklama</td>
+        <td>false</td>
+    </tr>
+
 </table>
+<button class="btn btn-success">Yeni Kategori Ekle</button>
+<button class="btn btn-warning">Kategori Listesi</button>
+<button class="btn btn-info">Kategori Açıklamaları</button>

@@ -62,10 +62,13 @@
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="Concrete\Repositories\WriterRepository.cs" />
-    <Compile Include="Migrations\202210191321327_mg1.cs" />
-    <Compile Include="Migrations\202210191321327_mg1.designer.cs">
-      <DependentUpon>202210191321327_mg1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Entity_Framework\EfAboutDAL.cs" />
+    <Compile Include="Entity_Framework\EfCategoryDAL.cs" />
+    <Compile Include="Entity_Framework\EfContactDAL.cs" />
+    <Compile Include="Entity_Framework\EfContentDAL.cs" />
+    <Compile Include="Entity_Framework\EfHeadingDAL.cs" />
+    <Compile Include="Entity_Framework\EfWriterDAL.cs" />
+    <Compile Include="Entity_Framework\ICategoryDAL.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,11 +81,6 @@
       <Project>{380b73f8-fda7-453d-aa4d-41245f759422}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202210191321327_mg1.resx">
-      <DependentUpon>202210191321327_mg1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
