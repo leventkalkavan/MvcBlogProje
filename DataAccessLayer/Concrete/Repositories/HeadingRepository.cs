@@ -18,12 +18,14 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Add(Heading p)
         {
-            throw new NotImplementedException();
+             _object.Add(p);
+            c.SaveChanges();
         }
 
         public void Delete(Heading p)
         {
-            throw new NotImplementedException();
+            _object.Remove(p);
+            c.SaveChanges();
         }
 
         public Heading Get(Expression<Func<Heading, bool>> filter)
@@ -33,7 +35,7 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public List<Heading> List()
         {
-            throw new NotImplementedException();
+            return _object.ToList();
         }
 
         public List<Heading> List(Expression<Func<Heading, bool>> filter)
@@ -43,7 +45,7 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Update(Heading p)
         {
-            throw new NotImplementedException();
+            c.SaveChanges();
         }
     }
 }
