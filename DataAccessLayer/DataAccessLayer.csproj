@@ -69,7 +69,30 @@
     <Compile Include="Entity_Framework\EfContentDAL.cs" />
     <Compile Include="Entity_Framework\EfHeadingDAL.cs" />
     <Compile Include="Entity_Framework\EfWriterDAL.cs" />
-    <Compile Include="Entity_Framework\ICategoryDAL.cs" />
+    <Compile Include="Migrations\202210250829351_mig_image.cs" />
+    <Compile Include="Migrations\202210250829351_mig_image.designer.cs">
+      <DependentUpon>202210250829351_mig_image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210250837346_mig_writerstatus.cs" />
+    <Compile Include="Migrations\202210250837346_mig_writerstatus.designer.cs">
+      <DependentUpon>202210250837346_mig_writerstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210251348431_mig_contentst.cs" />
+    <Compile Include="Migrations\202210251348431_mig_contentst.designer.cs">
+      <DependentUpon>202210251348431_mig_contentst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210261027405_mg4.cs" />
+    <Compile Include="Migrations\202210261027405_mg4.designer.cs">
+      <DependentUpon>202210261027405_mg4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210261801386_add-migration contactdate.cs" />
+    <Compile Include="Migrations\202210261801386_add-migration contactdate.designer.cs">
+      <DependentUpon>202210261801386_add-migration contactdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210271415215_mig27.cs" />
+    <Compile Include="Migrations\202210271415215_mig27.designer.cs">
+      <DependentUpon>202210271415215_mig27.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,6 +105,26 @@
       <Project>{380b73f8-fda7-453d-aa4d-41245f759422}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202210250829351_mig_image.resx">
+      <DependentUpon>202210250829351_mig_image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210250837346_mig_writerstatus.resx">
+      <DependentUpon>202210250837346_mig_writerstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210251348431_mig_contentst.resx">
+      <DependentUpon>202210251348431_mig_contentst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210261027405_mg4.resx">
+      <DependentUpon>202210261027405_mg4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210261801386_add-migration contactdate.resx">
+      <DependentUpon>202210261801386_add-migration contactdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210271415215_mig27.resx">
+      <DependentUpon>202210271415215_mig27.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

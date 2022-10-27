@@ -1,9 +1,10 @@
-
+﻿@using EntityLayer.Concrete
+@model List<Content>
 @{
     ViewBag.Title = "ContentByHeading";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+@{string color = "";}
 <!DOCTYPE html>
 <html>
 <body class="hold-transition sidebar-mini">
@@ -16,23 +17,29 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- The time line -->
-                        <div class="timeline">                       
-                                <!-- timeline time label -->
+                        <div class="timeline">
+                            <!-- timeline time label -->
+
+                            @foreach (var item in Model)
+                            {
                                 <div class="time-label">
-                                    <span class="bg-success">Tarih</span>
+                                    <span class="bg-success">
+                                        @(((DateTime)item.ContentDate).ToString("d MMM ddd yyyy - HH:mm"))
+                                    </span>
                                 </div>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
                                 <div>
                                     <i class="fas fa-comment bg-yellow"></i>
                                     <div class="timeline-item">
-                                        <h3 class="timeline-header"><a href="#">Test</a> Deneme</h3>
+                                        <h3 class="timeline-header"><a href="#">@item.Writer.WriterName @item.Writer.WriterSurname</a></h3>
                                         <div class="timeline-body">
-                                           İçerik
+                                            @item.ContentValue
                                         </div>
                                     </div>
                                 </div>
                                 <!-- END timeline item -->
+                            }
                         </div>
                     </div>
                     <!-- /.col -->
@@ -45,3 +52,4 @@
     <!-- ./wrapper -->
 </body>
 </html>
+
