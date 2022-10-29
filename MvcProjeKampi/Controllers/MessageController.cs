@@ -18,6 +18,8 @@ namespace MvcProjeKampi.Controllers
         WriterManager wm = new WriterManager(new EfWriterDAL());
 
         MessageValidator messagevalidator = new MessageValidator();
+
+        [Authorize]
         public ActionResult Inbox()
         {
             var messagelist = mm.GetListInbox();

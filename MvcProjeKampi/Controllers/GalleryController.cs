@@ -16,5 +16,9 @@ namespace MvcProjeKampi.Controllers
             var files = ifm.GetList();
             return View(files);
         }
+        public ActionResult Card()
+        {
+            return View();
+        }
     }
 }
