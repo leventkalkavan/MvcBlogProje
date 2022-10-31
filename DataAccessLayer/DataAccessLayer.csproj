@@ -105,6 +105,14 @@
     <Compile Include="Migrations\202210290706465_mig29.designer.cs">
       <DependentUpon>202210290706465_mig29.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210301041313_messagecs_update.cs" />
+    <Compile Include="Migrations\202210301041313_messagecs_update.designer.cs">
+      <DependentUpon>202210301041313_messagecs_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210301043161_messagecs_update2.cs" />
+    <Compile Include="Migrations\202210301043161_messagecs_update2.designer.cs">
+      <DependentUpon>202210301043161_messagecs_update2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -142,6 +150,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210290706465_mig29.resx">
       <DependentUpon>202210290706465_mig29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210301041313_messagecs_update.resx">
+      <DependentUpon>202210301041313_messagecs_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210301043161_messagecs_update2.resx">
+      <DependentUpon>202210301043161_messagecs_update2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
