@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
+using FluentValidation.Results;
+using BusinessLayer.ValidationRules;
 
 namespace MvcProjeKampi.Controllers
 {
@@ -19,13 +21,37 @@ namespace MvcProjeKampi.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDAL());
 
         CategoryManager cm = new CategoryManager(new EfCategoryDAL());
-        
+        WriterManager wm = new WriterManager(new EfWriterDAL());
+
         Context c = new Context();
-        public ActionResult WriterProfile()
+        [HttpGet]
+        public ActionResult WriterProfile(int id=0)
         {
+            string p = (string)Session["WriterMail"];
+            id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var writervalue = wm.GetByID(id);
+            return View(writervalue);
+        }
+        [HttpPost]
+        public ActionResult WriterProfile(Writer wr)
+        {
+            WriterValidator writervalidator = new WriterValidator();
+            ValidationResult results = writervalidator.Validate(wr);
+            if (results.IsValid)
+            {
+                wm.WriterUpdate(wr);
+                return RedirectToAction("AllHeading","WriterPanel");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
             return View();
         }
-
         public ActionResult MyHeading(string p)
         {
             p = (string)Session["WriterMail"];
@@ -36,7 +62,7 @@ namespace MvcProjeKampi.Controllers
         }
         [HttpGet]
         public ActionResult NewHeading()
-        {            
+        {
             List<SelectListItem> valuecategory = (from x in cm.GetList()
                                                   select new SelectListItem
                                                   {
@@ -82,9 +108,9 @@ namespace MvcProjeKampi.Controllers
             hm.HeadingDelete(HeadingValue);
             return RedirectToAction("MyHeading");
         }
-        public ActionResult AllHeading(int p=1)
+        public ActionResult AllHeading(int p = 1)
         {
-            var headings = hm.GetList().ToPagedList(p,4);
+            var headings = hm.GetList().ToPagedList(p, 4);
             return View(headings);
         }
     }

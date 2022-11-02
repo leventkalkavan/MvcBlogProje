@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using DataAccessLayer.Concrete;
 using System.Web.Security;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Entity_Framework;
 
 namespace MvcProjeKampi.Controllers
 
@@ -13,6 +15,7 @@ namespace MvcProjeKampi.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
+        WriterLoginManager wm = new WriterLoginManager(new EfWriterDAL());
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -43,8 +46,9 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer p)
         {
-            Context c = new Context();
-            var writerinfo = c.Writers.FirstOrDefault(x=>x.WriterMail==p.WriterMail && x.WriterPassword == p.WriterPassword);
+            //Context c = new Context();
+            //var writerinfo = c.Writers.FirstOrDefault(x=>x.WriterMail==p.WriterMail && x.WriterPassword == p.WriterPassword);
+            var writerinfo = wm.GetWriter(p.WriterMail, p.WriterPassword);
             if (writerinfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writerinfo.WriterMail,false);
